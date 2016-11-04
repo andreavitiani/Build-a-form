@@ -1,0 +1,314 @@
+/*******MAIN STYLES******/
+
+* {
+    font-family: 'Merriweather', serif;
+    color: #b8b8b8;
+    box-sizing: border-box;
+    border: none;
+    font-size: .93em;
+}
+
+header {
+    background-color: #2d3945;
+    padding: 6px 0;
+    margin-bottom: 20px;
+}
+
+main {
+    width: 90%;
+    margin: auto;
+}
+
+footer p {
+    text-align: center;
+    margin: 0 0 200px 0;
+}
+
+/*******CUSTOM ELEMENTS*******/
+
+header h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.main-title h1, 
+.main-title h2 {
+    text-align: center;
+}
+
+.main-title h1 {
+    color: #333;
+    font-size: 1.3em;
+}
+
+.title-separator-1 {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    margin: 20PX auto 2px auto;
+}
+
+.title-separator-2 {
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    margin: 0 auto;
+}
+
+/******FORM STYLE*****/
+
+form {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+fieldset {
+    padding: 0;
+    border: none;
+    margin-top: 20px;
+}
+
+legend p{
+    color: #000;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+legend::before {
+    content: "";
+    display: inline-block;
+    margin-right: 15px;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background-color: #4ebbb5;
+    vertical-align: middle;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+    padding: 8px 12px;
+    width: 100%;
+    margin: 10px 0 20px 0;;
+    background-color: #eff0f1;
+    border-radius: 5px;
+    height: 40px;
+    display: block;
+}
+
+input.placeholder-right::-webkit-input-placeholder { 
+    text-align: right;
+}
+
+textarea {
+    height: 80px;
+}
+
+button[type="submit"] {
+    background-color: #4ebbb5;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 4px;
+    width: 100%;
+    padding: 18px;
+    text-align: center;
+    margin-top: 7px;
+}
+
+input.zip-code {
+    width: 50%;
+}
+
+fieldset legend {
+    margin-bottom: 20px;
+}
+
+/**** FORM PSEUDO CLASS******/
+
+input:focus,
+textarea:focus {
+    border: solid 1px darkblue;
+    outline: none;
+}
+
+/**********STYLE RADIO-CHECKBOX*******/
+
+.section input[type="radio"],
+.section input[type="checkbox"]{
+    display: none;
+}
+
+.container {
+    margin-bottom: 15px;
+    display: flex;
+
+}
+
+/*************SPANS****************/
+
+.container span {
+    line-height: 12px;
+    font-size: 12px;
+    height: 12px;
+    position: relative;
+}
+
+label span.radio-check-mark,
+label span.check-mark {
+ display: none;
+}
+
+input[type="checkbox"]:checked ~ label span.check-mark, 
+input[type="radio"]:checked ~ label span.radio-check-mark {
+    display: inline;
+    color: darkblue;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+input[type="checkbox"]:checked ~ label span.check-mark {
+    font-size: 10px;
+    left: 2px;
+    bottom: 2px;
+}
+
+input[type="radio"]:checked ~ label span.radio-check-mark {
+    font-size: 20px;
+    left: 2px;
+    bottom: 3px;
+}
+
+/*************CHECK-BOXES************/
+
+.container span.checkbox::before {
+    content: "";
+    display: inline-block;
+    margin: 0 5px 0 0;;
+    padding: 0;
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 3px;
+    background-color: #eff0f1;
+}
+
+.container span.checkbox:hover::before {
+    border: solid 1px darkblue;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"]:checked + label span.checkbox::before {
+    border: solid 1px darkblue;
+    box-sizing: border-box;
+}
+
+/*******RADIO-BUTTONS*******/
+
+.container span.radio::before {
+    content: "";
+    display: inline-block;
+    margin: 0 5px 0 0;;
+    padding: 0;
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 100%;
+    background-color: #eff0f1;
+}
+
+.container span.radio:hover::before {
+    width: 12px;
+    height: 12px;
+    border: solid 1px darkblue;
+    box-sizing: border-box;
+}
+
+input[type="radio"]:checked + label span.radio::before {
+    width: 12px;
+    height: 12px;
+    border: solid 1px darkblue;
+    box-sizing: border-box;
+}
+
+/*****MEDIA QUERY**********************************************************************************************/
+
+@media screen and (min-width: 760px) {
+    
+    * {
+        color: #798e9e;
+    }
+    
+    header {
+    margin-bottom: 35px;
+}
+    
+    .main-title h2,
+    footer p em {
+        color: #b8b8b8;
+    }
+    
+    main {
+        width: 70%;
+        max-width: 600px;
+        margin: auto;
+    }
+    
+    /*******FORM******/
+    
+    .fieldset-flex div {
+        display: flex;
+        align-content: flex-start;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .fiedlset-flex div label {
+        order: 1;
+    }
+    
+    .fieldset-flex div input,
+    .fieldset-flex div select {
+        width: 80%;
+    }
+    
+    .fieldset-flex div .zip-code {
+        width: 35%;
+        margin-right: 45%;
+    }
+
+    fieldset legend {
+        margin-bottom: 20px;
+    }
+    
+}
+
+
+@media screen and (min-width: 530px) {
+    
+    * {
+        color: #798e9e;
+    }
+    
+    header {
+        margin-bottom: 35px;
+    }
+    
+    .main-title h2,
+    footer p em {
+        color: #b8b8b8;
+    }
+    
+    main {
+        width: 70%;
+        margin: auto;
+    }
+
+}
