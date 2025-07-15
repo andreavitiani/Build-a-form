@@ -17,7 +17,7 @@ export default function App() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Supermarket Offers</Text>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>Offerte Supermercato</Text>
       <FlatList
         data={prices}
         keyExtractor={item => item.id.toString()}

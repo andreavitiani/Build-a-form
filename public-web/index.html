@@ -3,21 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Supermarket Offers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Welcome to Supermarket Offers</h1>
-  <p>Below you can find the latest price entries.</p>
-  <table id="priceTable" border="1" cellpadding="5">
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Store</th>
-        <th>Price (€)</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-  <script>
+<body class="bg-gray-100 min-h-screen p-6">
+  <div class="max-w-3xl mx-auto text-center">
+    <h1 class="text-4xl font-bold mb-4">Offerte per la tua spesa</h1>
+    <p class="mb-6">Scopri in tempo reale quanto costa preparare le tue ricette preferite e trova il supermercato più economico.</p>
+    <h2 class="text-2xl font-semibold mb-2">Ultimi prezzi inseriti</h2>
+    <table id="priceTable" class="min-w-full bg-white shadow rounded overflow-hidden mb-6">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="px-4 py-2 text-left">Prodotto</th>
+          <th class="px-4 py-2 text-left">Catena</th>
+          <th class="px-4 py-2 text-left">Prezzo (€)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p>Questa applicazione ti aiuta a risparmiare creandoti la lista della spesa più economica possibile.</p>
+  </div>
+<script>
 const api = 'http://localhost:3000';
 async function loadPrices() {
   const res = await fetch(api + '/prices');
@@ -26,11 +31,11 @@ async function loadPrices() {
   tbody.innerHTML = '';
   data.forEach(p => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${p.product}</td><td>${p.store}</td><td>${p.price}</td>`;
+    tr.innerHTML = `<td class="border-t px-4 py-2">${p.product}</td><td class="border-t px-4 py-2">${p.store}</td><td class="border-t px-4 py-2">${p.price}</td>`;
     tbody.appendChild(tr);
   });
 }
 loadPrices();
-  </script>
+</script>
 </body>
 </html>
