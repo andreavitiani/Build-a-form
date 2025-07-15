@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <h1>Admin Dashboard</h1>
+  <form id="priceForm">
+    <input id="product" placeholder="Product" required>
+    <input id="store" placeholder="Store" required>
+    <input id="price" placeholder="Price" type="number" step="0.01" required>
+    <button type="submit">Add Price</button>
+  </form>
+  <h2>Prices</h2>
+  <ul id="priceList"></ul>
+<script>
+const api = 'http://localhost:3000';
+async function loadPrices() {
+  const res = await fetch(api + '/prices');
+  const data = await res.json();
+  const list = document.getElementById('priceList');
+  list.innerHTML = '';
+  data.forEach(p => {
+    const li = document.createElement('li');
+    li.textContent = `${p.product} - ${p.store}: €${p.price}`;
+    list.appendChild(li);
+  });
+}
+document.getElementById('priceForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const product = document.getElementById('product').value;
+  const store = document.getElementById('store').value;
+  const price = parseFloat(document.getElementById('price').value);
+  await fetch(api + '/prices', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ product, store, price })
+  });
+  e.target.reset();
+  loadPrices();
+});
+loadPrices();
+</script>
+</body>
+</html>
