@@ -6,6 +6,31 @@
 </head>
 <body>
   <h1>Welcome to Supermarket Offers</h1>
-  <p>Landing page placeholder.</p>
+  <p>Below you can find the latest price entries.</p>
+  <table id="priceTable" border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Store</th>
+        <th>Price (€)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script>
+const api = 'http://localhost:3000';
+async function loadPrices() {
+  const res = await fetch(api + '/prices');
+  const data = await res.json();
+  const tbody = document.querySelector('#priceTable tbody');
+  tbody.innerHTML = '';
+  data.forEach(p => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${p.product}</td><td>${p.store}</td><td>${p.price}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+loadPrices();
+  </script>
 </body>
 </html>

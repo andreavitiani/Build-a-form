@@ -1,6 +1,6 @@
 # Supermarket Offers App
 
-Skeleton for a full-stack system to track supermarket prices in Italy.
+Simple full-stack system to track supermarket prices in Italy.
 
 Directories:
 - `mobile-app` – Expo React Native app for end users.
@@ -8,4 +8,6 @@ Directories:
 - `public-web` – Landing page.
 - `server` – Node.js API and database layer.
 
-Each folder has minimal starter files.
+Run `npm install` inside `server` then `npm start` to launch the API on port 3000.
+The admin dashboard (`admin-web/index.html`) lets you create, edit and delete price entries.
+The landing page (`public-web/index.html`) displays the latest prices.
